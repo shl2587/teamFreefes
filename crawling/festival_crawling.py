@@ -28,10 +28,11 @@ url_end = '&pOrder=01down&pPeriod=&fromDt=20230101&toDt=20231231&pSido=&pSearchT
 
 dataList = []
 # 한번에 하면 코드가 멈춰버려서 수동으로 범위제한
-for i in range(1, 2):  
+for i in range(1, 21):  
     page = str(i)
     url = url_start + page + url_end
     driver.get(url)
+    driver.implicitly_wait(3)
     festivalList = driver.find_elements(By.CSS_SELECTOR, 'a.go')
     for festival in festivalList:
         festival.click()
@@ -50,7 +51,7 @@ for i in range(1, 2):
             
         dataList.append(data)
         driver.back()
-        input()
+
     
 f = open('festival.json', 'w', -1, 'utf-8')
 json.dump(dataList, f, indent=4, ensure_ascii=False)

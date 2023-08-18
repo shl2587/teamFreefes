@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+	"-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ohmija.repository.DataDAO">
+	<insert id="insert" parameterType="data">
+		insert into festival_status 
+				(region, title, period, category, url, place, way_to_come, fee, age_limit, time, host_org, inquire)
+			values
+				( #{region}, #{title},
+				  #{period}, #{category},
+				  #{url}, #{place}, #{way_to_come},
+				  #{fee}, #{age_limit}, #{time}, #{host_org}, #{inquire})
+	</insert>
+</mapper>
