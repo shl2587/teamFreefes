@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC
+	"-//mybatis.org//DTD config 3.0//EN" 
+	"https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false"/>
+		<setting name="useGeneratedKeys" value="false"/>
+		<setting name="mapUnderscoreToCamelCase" value="false"/>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+	
+	<typeAliases>
+		<!-- 승록 -->
+		<typeAlias type="com.ohmija.model.BoardDTO" alias="fes_board"/>
+		<typeAlias type="com.ohmija.model.Festival_statusDTO" alias="fes_list"/>
+		<typeAlias type="com.ohmija.model.Festival_board_pagingDTO" alias="fes_board_page"/>
+		
+		<!-- 도윤 -->
+		<typeAlias type="com.ohmija.model.Admin_boardDTO" alias="adminboard"/>
+		<typeAlias type="com.ohmija.model.PostMessageDTO" alias="message"/>
+   		<typeAlias type="com.ohmija.model.QnADTO" alias="qna"/>
+   		
+   		<!-- 병학, 계립 -->
+   		<typeAlias type="com.ohmija.model.MemberDTO" alias="member"/>
+	</typeAliases>
+</configuration>
