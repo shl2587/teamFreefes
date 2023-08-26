@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+	"-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ohmija.repository.Fes_boardDAO">
+	<insert id="mainWrite" parameterType="fes_board">
+		insert into board
+				(member, start_date, end_date,
+				 title, content, region,
+				 file_name, file_path, festival_category)
+			values
+				(#{member}, #{start_date}, #{end_date},
+				 #{title}, #{content}, #{region}, #{file_name},
+				 #{file_path}, #{festival_category})
+	</insert>
+	
+	<select id="select_month" resultType="fes_board" parameterType="string">
+		select * from board
+			where to_char(start_date, 'yyyy-MM') = #{month}
+				or to_char(end_date, 'yyyy-MM') = #{month}
+            order by idx
+	</select>
+	
+	<select id="select_coming" resultType="fes_board">
+		select * from board
+			where end_date &gt;= sysdate
+			order by start_date, end_date
+			fetch first 10 rows only
+	</select>
+	
+	<select id="select_top10" resultType="fes_board">
+		select rownum as rank, 
+				idx, start_date, end_date, title, favorites, grade,
+				region, file_name, file_path, festival_category
+			from board
+				where end_date &gt;= sysdate
+				order by favorites desc
+				 fetch first 10 rows only
+	</select>
+	
+	<select id="select_total_page" resultType="int">
+		select count(*) from board
+	</select>
+	
+	<select id="fes_board_selectAll" parameterType="fes_board_page" resultType="fes_board">
+		select * from board
+			order by idx desc
+			offset #{offset} rows
+			fetch next #{per_page} rows only
+	</select>
+	
+	<select id="select_main_board" parameterType="int" resultType="fes_board">
+		select * from board
+			where idx = #{idx}
+	</select>
+
+	<select id="select_search_All" parameterType="fes_search" resultType="fes_board">
+		select * from board
+			where
+				region like '%' || #{region} || '%'
+				and region like '%' || #{region_section} || '%'
+				and festival_category like '%' || #{festival_category} || '%'
+				and title like '%' || #{fes_keyword} || '%'
+				and url like '%' || #{fes_keyword} || '%'
+				and place like '%' || #{fes_keyword} || '%'
+<!-- 				or way_to_come like '%' || #{fes_keyword} || '%' -->
+<!-- 				or fee like '%' || #{fes_keyword} || '%' -->
+<!-- 				or age_limit like '%' || #{fes_keyword} || '%' -->
+<!-- 				or inquire like '%' || #{fes_keyword} || '%' -->
+<!-- 				or host_org like '%' || #{fes_keyword} || '%' -->
+<!-- 				or content like '%' || #{fes_keyword} || '%' -->
+			order by idx desc
+	</select>
+	
+	
+	
+</mapper>
