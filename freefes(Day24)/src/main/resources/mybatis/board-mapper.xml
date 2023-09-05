@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+	"-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ohmija.repository.Fes_boardDAO">
+	<!-- 동영 -->
+	<insert id="mainWrite" parameterType="fes_board">
+		insert into board
+				(member, start_date, end_date,
+				 title, content, region, file_path, festival_category,
+				 place, time, url, fee, age_limit, host_org, inquire, way_to_come)
+			values
+				(#{member}, #{start_date}, #{end_date},
+				 #{title}, #{content}, #{region},
+				 #{file_path}, #{festival_category},
+				 #{place}, #{time}, #{url}, #{fee}, #{age_limit}, #{host_org},
+				 #{inquire}, #{way_to_come})
+	</insert>
+	
+	<select id="select_month" resultType="fes_board" parameterType="string">
+		select * from board
+			where to_char(start_date, 'yyyy-MM') = #{month}
+				or to_char(end_date, 'yyyy-MM') = #{month}
+            order by idx
+	</select>
+	
+   <select id="select_coming" resultType="fes_board">
+      select * from board
+         where end_date &gt;= sysdate
+            and approve = 1
+            and end_date - start_date &lt; 10
+         order by start_date, end_date
+         fetch first 5 rows only
+   </select>
+	
+	<select id="select_top10" resultType="fes_board">
+		select rownum as rank, 
+				idx, start_date, end_date, title, favorites, grade,
+				region, file_path, festival_category
+			from board
+				where end_date &gt;= sysdate
+					and approve = 1
+				order by favorites desc
+				 fetch first 10 rows only
+	</select>
+	
+	<!-- 임시 저장 -->
+	
+	<!-- upsert를 이용하여 임시저장글 저장 (member, title이 동시에 중복될 경우 update / 아니면 insert) -->
+	<update id="temp_board_save" parameterType="fes_board">
+		merge into temp_board t
+		using (
+			select
+				#{member} as member,
+				#{title} as title,
+				#{start_date} as start_date,
+				#{end_date} as end_date,
+				#{content} as content,
+				#{region} as region,
+				#{festival_category} as festival_category,
+				#{place} as place,
+				#{time} as time,
+				#{url} as url,
+				#{fee} as fee,
+				#{age_limit} as age_limit,
+				#{host_org} as host_org,
+				#{inquire} as inquire,
+				#{way_to_come} as way_to_come
+				
+			from dual
+		) s
+		on (t.member = s.member and t.title = s.title)
+		when matched then
+			update set
+				t.start_date = s.start_date,
+				t.end_date = s.end_date,
+				t.content = s.content,
+				t.region = s.region,
+				t.festival_category = s.festival_category,
+				t.place = s.place,
+				t.time = s.time,
+				t.url = s.url,
+				t.fee = s.age_limit,
+				t.host_org = s.inquire,
+				t.way_to_come = s. way_to_come
+		when not matched then
+			insert (member, title, start_date, end_date,
+					content, region, festival_category,
+					place, time, url, host_org, way_to_come)
+			values (s.member, s.title, s.start_date, s.end_date,
+					s.content, s.region, s.festival_category,
+					s.place, s.time, s.url, s.host_org, s.way_to_come)
+	</update>
+	
+	<select id="select_temp_board" resultType="fes_board" parameterType="int">
+		select * from temp_board
+			where member = #{member}
+				order by write_date desc
+	</select>
+	
+	<select id="load_temp_board" resultType="fes_board" parameterType="int">
+		select * from temp_board
+			where idx = #{idx}
+	</select>
+	
+	<delete id="temp_delete" parameterType="int">
+		delete from temp_board where idx = #{idx}
+	</delete>
+	
+	<select id="load_after_save" resultType="fes_board" parameterType="fes_board">
+		select * from temp_board
+			where member = #{member}
+				and title = #{title}
+	</select>
+	
+	
+	
+	
+	<!-- 승록 -->
+	<!-- 페이징을 위한 모든 게시물 개수 불러오기 -->
+	<select id="select_total_page" resultType="int">
+		select count(*) from board
+			where approve = 1
+	</select>
+	
+	<!-- 기본 페이징 -->
+	<select id="fes_board_selectAll" parameterType="fes_board_page" resultType="fes_board">
+		select * from board
+			where approve = 1
+			order by idx desc
+			offset #{offset} rows
+			fetch next #{per_page} rows only
+	</select>
+	
+	<!-- 해당 게시물 띄우기 -->
+	<update id="update_board_count" parameterType="fes_board">
+		update board set
+			count = #{count}
+			where idx = #{idx}
+	</update>
+	
+	<select id="select_main_board" parameterType="int" resultType="fes_board">
+		select * from board
+			where idx = #{idx}
+	</select>
+	
+	<!-- 검색 게시물 개수 -->
+	<select id="select_search_total" parameterType="fes_search" resultType="int">
+		select count(*) from board
+			where
+				region like '%' || #{region} || '%'
+				and region like '%' || #{region_section} || '%'
+				and festival_category like '%' || #{festival_category} || '%'
+				<if test="start_date != null and start_date != ''">
+					and start_date &gt;= #{start_date}
+				</if>
+				<if test="end_date != null and end_date != ''">
+				    and end_date &lt;= #{end_date}
+				</if>
+				<if test="fes_keyword != null and fes_keyword != ''">
+				and member = 
+					(select idx from member where nickname like '%' || #{fes_keyword} || '%')
+				</if>
+				and approve = 1
+	</select>
+	
+	<select id="search_complex_total" parameterType="fes_search" resultType="int">
+		select count(*) from board
+			where
+				region like '%' || #{region} || '%'
+				and region like '%' || #{region_section} || '%'
+				and festival_category like '%' || #{festival_category} || '%'
+				<if test="start_date != null and start_date != ''">
+					and start_date &gt;= #{start_date}
+				</if>
+				<if test="end_date != null and end_date != ''">
+				    and end_date &lt;= #{end_date}
+				</if>
+				and (title like '%' || #{fes_keyword} || '%'
+				or url like '%' || #{fes_keyword} || '%'
+				or place like '%' || #{fes_keyword} || '%'
+				or way_to_come like '%' || #{fes_keyword} || '%'
+				or fee like '%' || #{fes_keyword} || '%'
+				or age_limit like '%' || #{fes_keyword} || '%'
+				or inquire like '%' || #{fes_keyword} || '%'
+				or host_org like '%' || #{fes_keyword} || '%'
+				or content like '%' || #{fes_keyword} || '%')
+				and approve = 1
+	</select>
+
+	<!-- 검색 결과 -->	
+	<select id="select_search_All" parameterType="fes_board_page" resultType="fes_board">
+		select * from board
+			where
+				region like '%' || #{region} || '%'
+				and region like '%' || #{region_section} || '%'
+				and festival_category like '%' || #{festival_category} || '%'
+				<if test="start_date != null and start_date != ''">
+					and start_date &gt;= #{start_date}
+				</if>
+				<if test="end_date != null and end_date != ''">
+				    and end_date &lt;= #{end_date}
+				</if>
+				<if test="fes_keyword != null and fes_keyword != ''">
+				and member = 
+					(select idx from member where nickname like '%' || #{fes_keyword} || '%')
+				</if>
+			and approve = 1
+			order by idx desc
+			offset #{offset} rows
+			fetch next #{per_page} rows only
+	</select>
+	
+		<select id="select_search_complex" parameterType="fes_board_page" resultType="fes_board">
+		select * from board
+			where
+				region like '%' || #{region} || '%'
+				and region like '%' || #{region_section} || '%'
+				and festival_category like '%' || #{festival_category} || '%'
+				<if test="start_date != null and start_date != ''">
+					and start_date &gt;= #{start_date}
+				</if>
+				<if test="end_date != null and end_date != ''">
+				    and end_date &lt;= #{end_date}
+				</if>
+				and (title like '%' || #{fes_keyword} || '%'
+				or url like '%' || #{fes_keyword} || '%'
+				or place like '%' || #{fes_keyword} || '%'
+				or way_to_come like '%' || #{fes_keyword} || '%'
+				or fee like '%' || #{fes_keyword} || '%'
+				or age_limit like '%' || #{fes_keyword} || '%'
+				or inquire like '%' || #{fes_keyword} || '%'
+				or host_org like '%' || #{fes_keyword} || '%'
+				or content like '%' || #{fes_keyword} || '%')
+				and approve = 1
+			order by idx desc
+			offset #{offset} rows
+			fetch next #{per_page} rows only
+	</select>
+	
+	<!-- 계립 좋아요 내역-->
+   <select id="selectfav" parameterType="int" resultType="fes_board">
+	   select b.* from board b
+		       join favorites f
+		    on b.idx = f.board
+		    where #{idx} = f.member
+   </select>
+	
+</mapper>
