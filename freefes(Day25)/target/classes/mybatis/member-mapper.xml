@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ohmija.repository.MemberDAO">
+
+<insert id="insert" parameterType="member">
+	insert into member (userid, userpw, name, gender, birth, address, nickname, email, phonenumber, verify1, verify2, answer1, answer2)
+		values (#{userid}, #{userpw}, #{name}, #{gender}, #{birth}, #{address}, #{nickname}, #{email}, #{phonenumber}, #{verify1}, #{verify2}, #{answer1}, #{answer2})
+</insert>
+
+<select id="selectCount" parameterType="string" resultType="int">
+	select count(*) from member
+			where
+				userid = #{userid}
+</select>
+
+<select id="nickNameCheck" parameterType="string" resultType="int">
+		select count(*) from member
+			where
+				nickname = #{nickname}
+</select>
+
+<select id="emailCheck" parameterType="string" resultType="int">
+		select count(*) from member
+			where
+				email = #{email}
+</select>
+
+<select id="findId2" parameterType="string" resultType="int">
+	select count(*) from member
+		where 
+			name = #{name} and email = #{email}
+</select>
+
+	<select id="selectLogin" parameterType="member" resultType="member">
+		select * from member
+			where
+				userid = #{userid}
+				and
+				userpw = #{userpw}
+	</select>
+	
+	<select id="selectEmail" parameterType="member" resultType="string">
+		select email from member
+			where
+				name = #{name}
+				and
+				email = #{email}
+	</select>
+
+	<select id="selectid" parameterType="member" resultType="int">
+		select count(userid) from member
+			where
+				name = #{name}
+				and
+				email = #{email}
+	</select>
+	
+	<select id="selectMyid" parameterType="string" resultType="string">
+			select userid from member
+				where name = #{name}
+	</select>
+
+	<select id="selectpw_id" parameterType="member" resultType="int">
+		select count(userid) from member
+			where
+				userid = #{userid}
+					and
+				name = #{name}
+					and
+				email = #{email}
+	</select>
+	
+	<select id="findreceiver" parameterType="string" resultType="member">
+		SELECT idx FROM member
+			WHERE nickname = #{receiver_nickname}
+	</select>
+	
+	<select id="selectOne" parameterType="int" resultType="member">
+	select * from member where idx = #{idx}
+</select>
+
+<select id="receiver_nicknameCheck" parameterType="string" resultType="int">
+	select count(*) from member where nickname = #{receiver_nickname}
+</select>
+
+<select id="passCheck_before" parameterType="member" resultType="int">
+	select count(*) from member where userid = #{userid} and userpw = #{userpw}
+</select>
+<select id="selectVerify" parameterType="member" resultType="member">
+	select verify1, verify2
+		from member 
+			where 
+				userid = #{userid}
+					and
+				name = #{name}
+					and
+				email = #{email}
+</select>
+	
+<select id="selectAnswer" parameterType="member" resultType="int">
+	select count(*) from member
+		where
+			answer1 = #{answer1}
+				and
+			answer2 = #{answer2}
+				and
+			userid = #{userid}
+</select>
+
+<delete id="login_bye_check" parameterType="member">
+	delete from member where userid = #{userid} and userpw = #{userpw}
+</delete>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
