@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ohmija.repository.ReplyDAO">
+
+	<select id="selectfav" parameterType="int" resultType="reply">
+		SELECT b.title, r.content, r.grade, r.write_date
+			FROM board b
+		JOIN reply r ON b.idx = r.board
+		JOIN member m ON r.member = m.idx
+		WHERE m.idx = #{idx}
+	</select>
+	
+	<insert id="reply_write" parameterType="reply">
+		merge into reply t
+		using (
+			select
+				#{member} as member,
+				#{board} as board,
+				#{content} as content,
+				#{grade} as grade
+			from dual
+		) s
+		on (t.member = s.member and t.board = s.board)
+		when matched then
+			update set
+				t.content = s.content,
+				t.grade = s.grade,
+				t.write_date = sysdate
+		when not matched then
+			insert (member, board, content, grade)
+			values (s.member, s.board, s.content, s.grade)
+	</insert>
+	
+	<select id="selectOnBoard" parameterType="int" resultType="reply">
+		select m.nickname, r.* from reply r
+			join member m
+				on m.idx = r.member
+			where r.board = #{board}
+			order by r.write_date
+	</select>
+	
+	<select id="selectMyReply" parameterType="reply" resultType="reply">
+		select * from reply
+			where board = #{board}
+				and member = #{member}
+	</select>
+	
+	<delete id="reply_delete" parameterType="int">
+		delete from reply where idx = #{idx}
+	</delete>
+	
+	<select id="selectByIdx" parameterType="int" resultType="int">
+		select board from reply where idx = #{idx}
+	</select>
+	
+	<select id="get_gradeAVG" resultType="float" parameterType="int">
+		select avg(grade)
+			from reply
+				where board = #{boardIdx}
+	</select>
+</mapper>
