@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ohmija.repository.PostMessageDAO">
+
+	
+<!-- 	<select id="findreceiver" parameterType="string" resultType="int"> -->
+<!-- 		SELECT idx FROM member WHERE nickname = #{receiver} -->
+<!-- 	</select> -->
+	
+	<insert id="sendMessage" parameterType="message">
+		insert into post_message (writer, receiver, title, content, category)
+			values 
+				(#{writer}, #{receiver}, #{title}, #{content}, #{category})
+	</insert>
+	
+	<select id="selectMessage" parameterType="int" resultType="message">
+		SELECT pm.idx,
+       		wm.nickname as writer_nickname,
+       		rm.nickname as receiver_nickname,
+       		pm.title,
+       		pm.content,
+      		pm.category,
+       		pm.result,
+       		pm.date_column
+		FROM post_message pm
+		JOIN member wm ON pm.writer = wm.idx
+		join member rm on pm.receiver = rm.idx 
+		WHERE pm.receiver = #{idx} or pm.writer = #{idx}
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		delete from post_message where idx = #{idx}
+	</delete>
+	
+		<select id="select_SendMessage" parameterType="int" resultType="message">
+		SELECT pm.idx,
+       		wm.nickname as writer_nickname,
+       		rm.nickname as receiver_nickname,
+       		pm.title,
+       		pm.content,
+      		pm.category,
+       		pm.result,
+       		pm.date_column
+		FROM post_message pm
+		JOIN member wm ON pm.writer = wm.idx
+		join member rm on pm.receiver = rm.idx 
+		WHERE pm.writer = #{idx}
+	</select>
+		<select id="select_receivedMessage" parameterType="int" resultType="message">
+		SELECT pm.idx,
+       		wm.nickname as writer_nickname,
+       		rm.nickname as receiver_nickname,
+       		pm.title,
+       		pm.content,
+      		pm.category,
+       		pm.result,
+       		pm.date_column
+		FROM post_message pm
+		JOIN member wm ON pm.writer = wm.idx
+		join member rm on pm.receiver = rm.idx 
+		WHERE pm.receiver = #{idx}
+	</select>
+	
+	
+	<!-- 쪽지 view -->
+	<select id="selectOne" parameterType="int" resultType="message">
+		select * from post_message where idx = #{idx}
+	</select>
+	
+</mapper>
+
