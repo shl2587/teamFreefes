@@ -1,0 +1,377 @@
+@charset "utf-8"; 
+
+.hidden {
+   display: none;
+   justify-content: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+h1 {
+   text-align: center;
+   margin: 10px;
+   color: #002E7F;
+}
+.login-container {
+    width: 50%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+#loginForm > p > input[type="text"],
+#loginForm > p > input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+   border: 1px solid #ccc; 
+    border-radius: 6px;
+}
+
+#loginForm > p > input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    background-color: #0068FF; 
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#loginForm > p > input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.login-options {
+   display: flex;
+    margin-top: 10px;
+    text-align: center;
+   justify-content: space-around;
+}
+
+.login-options > a > button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 130px;
+}
+
+.login-options > a >button:hover {
+    background-color: #0068FF;
+    color: white;
+}
+
+.lobot_checkbox {
+   text-align: center;
+   display: flex;
+   font-size: 20px;
+   margin-top: 20px;
+}
+.lobot_checkbox > div {
+   width: 200px;
+   height: auto;
+}
+#modal-overlay {
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   background-color: rgba(0, 0, 0, 0.3);
+   top: 0;
+   left: 0;
+   z-index: 1;
+}
+
+#modal-content {
+   width: fit-content;
+   height: fit-content;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   z-index: 2;
+   transform: translate(-50%, -50%);
+   box-shadow: 5px 5px 5px grey;
+   border-radius: 10px;
+   background-color: white;
+}
+
+.login_modal {
+   display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.login_modal>h1 {
+   text-align: center;
+   color: white; 
+}
+
+.bt_choice > p > a > button {
+   width: 400px;
+   height: 60px;
+   padding: 10px; 
+   margin-bottom: 10px; 
+   border-radius: 4px; 
+   background-color: #0056b3;
+   font-size: 20px;
+   color: white;
+}
+.bt_choice > p > a > button:hover {
+     background-color: #0068FF; ;
+}
+
+
+.choice_pw {
+   display: flex;
+   justify-content: space-around;
+}
+
+.closebnt {
+   display: flex;
+   align-items: center;
+   text-align: center;
+   justify-content: center;
+}
+
+.container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0 auto;
+}
+
+.puzzle {
+   display: grid;
+   grid-template-columns: repeat(3, 50px);
+   grid-template-rows: repeat(3, 50px);
+   gap: 5px;
+   margin-top: 20px;
+   display: none;
+   justify-self: center;
+   margin-left: 20px;
+}
+.score {
+   width: 150px;
+   text-align: center;
+   font-size: 50px;
+}
+.tile {
+   width: 50px;
+   height: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 24px;
+   cursor: pointer;
+}
+
+.red {
+   background-color: red;
+}
+
+.blue {
+   background-color: blue;
+}
+
+.green {
+   background-color: green;
+}
+
+.yellow {
+   background-color: yellow;
+}
+
+.orange {
+   background-color: orange;
+}
+
+.purple {
+   background-color: purple;
+}
+
+#loading {
+   display: none;
+   text-align: center;
+}
+
+#loading .loader {
+   display: flex;
+   border: 4px solid #f3f3f3;
+   border-top: 4px solid #3498db;
+   border-radius: 50%;
+   width: 30px;
+   height: 30px;
+   animation: spin 2s linear infinite;
+   margin: 10px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg); 시계방향 회전
+  }
+}
+.puzzle_text {
+   display: none;
+   color: red;
+}
+/* ------------------------------------ 로그인 ------------------------------------ */
+.find_id {
+    width: 50%;
+    height: 280px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+.find_id > h3 {
+   margin: 0;
+   padding: 0;
+   width: 400px;
+   text-align: center;
+}
+#find_Id > div {
+   display: flex;
+}
+#find_Id > div > div > p > input[type="text"],
+#find_Id > div > div > p > input[type="email"],
+.authNumber{
+    width: 250px;
+    height: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+   border: 1px solid #ccc; 
+    border-radius: 4px;
+}
+
+#send_Auth_Idnum {
+    width: 110px;
+    height: 100px;
+    padding: 10px;
+    background-color: #0068FF; 
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+}
+#check_Number{
+  width: 110px;
+    height: 40px;
+    padding: 10px;
+    background-color: #0068FF; 
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: -1px;
+}
+#send_Auth_Idnum:hover,
+#check_Number:hover {
+    background-color: #0056b3;
+}
+   #end{
+      width: 500px;
+      height: 20px;
+      border: 0;
+       outline: 0;
+       font-size: 12px;
+      margin-top: 50px;
+       text-align: center;
+       cursor: pointer;
+       color: gray;
+   }
+   #end > div {
+      width: 37px;
+      margin-left: 350px;
+   }
+#end> div:hover {
+   border-bottom: 1px solid gray;  
+}
+
+.email_pw{
+   display: flex;
+    width: 50%;
+    height: 250px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+.email_pw > form > div {
+   display: flex;
+}
+.email_pw > form > p > input[type="text"],
+.email_pw > form > div > input[type="email"]{
+    width: 250px;
+    height: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+   border: 1px solid #ccc; 
+    border-radius: 4px;
+}
+#send_Auth_pwnum, 
+#check_Number {
+    width: 110px;
+    height: 37px;
+    background-color: #0068FF; 
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+}
+   .hidden > input {
+      display: none;
+   }
+
+.verify > form > input,
+.verify > form > div > input {
+   display: flex;
+   width: 250px;
+    height: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+   border: 1px solid #ccc; 
+    border-radius: 4px;
+}
+.verify > form > div > input[type="submit"] {
+   background-color: red;
+}

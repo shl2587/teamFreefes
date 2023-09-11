@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ohmija.repository.Admin_boardDAO">
+
+	<!-- 페이징 설정 -->
+	<select id="select_total_page" resultType="int">
+		select count(*) from admin_board
+	</select>
+	
+	<!-- 일반게시판 공지사항 불러오기 -->
+	<select id="notice_selectAll" resultType="adminboard">
+		select * from admin_board
+			order by idx desc
+			offset #{offset} rows
+			fetch next #{per_page} rows only
+	</select>
+	
+	<!-- 운영자페이지 공지사항 목록 불러오기 페이징 -->
+	<select id="management_selectAll" resultType="adminboard">
+		select * from admin_board
+			order by idx desc
+			offset #{offset} rows
+			fetch next #{per_page} rows only
+	</select>
+	
+	<!-- 운영자페이지 게시글 승인 목록 불러오기 페이징 -->
+	<select id="confirm_selectAll" resultType="fes_board">
+		select b.*,
+        m.nickname as writer from board b
+            join member m on m.idx = b.member
+        order by b.idx desc
+        offset #{offset} rows
+        fetch next #{per_page} rows only
+	</select>
+	
+	<!-- 운영자 페이지 1:1문의 목록 불러오기 페이징-->
+	<select id="qna_list_selectAll" resultType="qna">
+		select q.*,
+        m.nickname as nickname from qna q
+            join member m on m.idx = q.member
+            order by q.idx desc
+        offset #{offset} rows
+        fetch next #{per_page} rows only
+	</select>
+	
+	
+	<select id="confirm_selectOne" parameterType="int" resultType="fes_board">
+		select * from board where idx = #{idx}
+	</select>
+	
+	<select id="selectOne" parameterType="int" resultType="adminboard">
+		select * from admin_board where idx = #{idx}
+	</select>
+	
+	<insert id="admin_write" parameterType="adminboard" >
+		insert into admin_board (member, title, content) values (#{member}, #{title}, #{content})
+	</insert>
+	
+	<update id="modify" parameterType="adminboard">
+		update admin_board 
+			set title = #{title}, content = #{content}, write_date = #{write_date} 
+				where idx = #{idx}
+	</update>
+	
+	<!-- 벤 회원 리스트 -->
+	<select id="getBannedMembers" resultType="member">
+	    select * from member where ban_until is not null and ban_until >= sysdate
+	</select>
+	
+	<!-- 회원 벤 -->
+	<update id="banMember" parameterType="map">
+	    update member set ban_until = #{banUntil} where idx = #{idx}
+	</update>
+	
+	<!-- 닉네임 -->
+	<select id="findMemberByNickname" resultType="member">
+		select * from member where nickname = #{nickname}
+	</select>
+	
+	<!-- 게시글 승인 approve 바꿈 -->
+	<update id="approve" parameterType="fes_board">
+	    update board set approve = #{approve} where idx = #{idx} 
+	</update>
+	
+	<!-- 삭제 check -->
+	<delete id="delete" parameterType="int">
+		delete from admin_board where idx = #{idx}	
+	</delete>
+	
+	<!-- 스프링 스케쥴 cron approve가 2거나 작성날보다 지정한날이 작으면 삭제 -->
+	<delete id="deleteSchedule" parameterType="java.time.LocalDateTime">
+		delete from board where approve = 2 and write_date &lt; #{threeDays}
+	</delete>
+	
+</mapper>
+
