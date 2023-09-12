@@ -1,0 +1,252 @@
+@charset "utf-8";
+
+  /*admin_board 공지사항 시작 */
+
+	main {
+	}
+	.admin_board_menu ul {
+		display: flex;
+		flex-wrap: wrap;
+	  	gap: 80px;
+		justify-content: left;
+		font-size: 20px;
+		font-weight: bold;
+		list-style: none;
+		margin-top: 80px;
+		width: 80%;
+		margin-left: 120px;
+		border: 3px double #3A98B9;
+		padding: 13px;
+		border-left: none;
+		border-right: none;
+	}
+	
+	
+	.admin_board_menu > ul > li > a {
+		text-decoration: none;
+		font-size: 18px;
+		color: #374259;
+	}
+	
+	.admin_board_menu > ul > li > a:visited {
+		text-decoration: none;	
+	}
+	
+	.admin_board_menu > ul > li > a:hover {
+		color: #8294C4;
+		text-decoration: none;	
+	}
+	
+	.admin_board_title h3 span {
+		margin-left: 7px;
+	}
+	
+	.admin_board_title {
+		margin-left: 120px;
+		margin-top: 50px;
+		margin-bottom: 35px;
+	}
+	
+	.qna_board_btn {
+		margin-bottom: 100px;
+	}
+	
+	/* 공지사항 작성 버튼 */
+	.admin_board_btn h3 {
+	  float: right;
+	  margin-top: 0px;
+	  margin-right: 150px;
+	  background-color: transparent;
+
+	}
+	
+	.fa-pen-nib {
+		font-size: 30px;
+		background-color: white;
+	}
+	
+	.admin_board_btn button {
+		background-color: transparent;
+		margin-top: 20px;
+		border: none;
+		text-decoration: none;
+		text-align: center;
+	    display: inline-block;
+	}
+	
+	.admin_board_btn button .write-icon-text {
+	    display: block;
+	    margin-top: 6px;
+	    text-align: center;
+	    color: #5398a2;
+	    font-weight: bold;
+	  }
+	
+	.admin_board_btn button:hover {
+	    cursor: pointer;
+	  }
+	  
+	  /*admin_board_write 공지 글 작성 시작 */
+	  
+	.admin_write_form {
+	   margin-top: 50px;
+	   width: 60%;
+	   margin-left: auto;
+	   margin-right: auto;
+	}
+	
+	.admin_write_form div {
+	   margin-bottom: 30px; 
+	}
+	
+	.admin_write_form textarea {
+	   width: 90%;
+	   height: 300px;
+	   padding-left: 20px;
+	   padding-top: 20px;
+	   font-size: 13px;
+	   border: 1px solid skyblue;
+	   outline: none;
+	   border-radius: 20px;
+	}
+	
+	#a_title {
+		width: 80%;
+		height: 40px;
+		padding-left: 20px;
+		border: 1px solid skyblue;
+		outline: none;
+		border-radius: 20px;
+	}
+	
+	#horsehead {
+		width: 70px;
+		height: 45px;
+		margin-left: 10px;
+		border: 1px solid skyblue;
+		outline: none;
+	}
+	
+	.submit_btn button {
+		width: 200px;
+		height: 40px;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		border-radius: 20px;
+		border-color: #537188;
+		background-color: #E3F4F4;
+		color: #537188;
+		font-weight: bold;
+		font-size: 20px;
+		margin-bottom: 50px;
+	}
+	
+	.submit_btn button:hover {
+		cursor: pointer;
+	}
+
+	#a_content {
+		padding-top: 20px;
+		padding-left: 40px;
+		border: 3px solid #434977;
+		font-size: 14px;
+		font-weight: bold;
+	}
+	
+/* admin_board_ask 자주 묻는 질문 시작 */
+
+	#modal.modalOverlay {
+	    width: 100%;
+	    height: 130vh;
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    display: none;
+	    flex-direction: column;
+	    align-items: center;
+	    justify-content: center;
+	    background: rgba(255, 255, 255, 0.25);
+	    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	    backdrop-filter: blur(1.5px);
+	    -webkit-backdrop-filter: blur(1.5px);
+	    border-radius: 10px;
+	    border: 1px solid rgba(255, 255, 255, 0.18);
+	}
+	
+	#modal .modalWindow {
+	    background: #113452d6;
+	    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	    backdrop-filter: blur(13.5px);
+	    -webkit-backdrop-filter: blur(13.5px);
+	    border-radius: 10px;
+	    border: 1px solid rgba(255, 255, 255, 0.18);
+	    width: 600px;
+	    height: 200px;
+	    position: relative;
+	    top: 20px;
+	    padding: 10px;
+	    opacity: 0.8;
+	}
+	
+	#answer_modal {
+		display: flex;
+	    flex-wrap: wrap; 
+	    justify-content: space-around; 
+	    margin-top: 40px;
+	   	margin-bottom: 100px;
+	}
+	
+	.modal-button {
+	    margin: 10px;
+	    width: 200px;
+	    height: 200px;
+	    border-radius: 50%;
+	    text-align: center;
+	    line-height: 200px;
+	    border: none;
+	    background-color: #434977;
+	    color: white;
+	    font-size: 20px;
+	    cursor: pointer;
+	    transition: 0.3s;
+	}
+	.modal-button:hover {
+		opacity: 0.8;
+		transition: 0.3s;
+	}
+	
+	
+	#modal .title {
+	    display: inline;
+	    text-shadow: 1px 1px 2px gray;
+	    color: white;
+	    
+	}
+	#modal .title h2 {
+	    display: inline;
+	    display: flex;
+	    justify-content: center;
+	}
+	
+	#modal .close {
+	    display: inline;
+	    float: right;
+	    padding-right: 10px;
+	    cursor: pointer;
+	    text-shadow: 1px 1px 2px gray;
+	    color: white;
+	}
+	
+	#modal .content {
+	    margin-top: 30px;
+	    padding-left: 30px;
+	    padding: 0px 10px;
+	    text-shadow: 1px 1px 2px gray;
+	    color: white;
+	 }
+	 
+	 
+	 
+	 
+	 

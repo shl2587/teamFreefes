@@ -1,0 +1,1244 @@
+@charset "utf-8";
+
+/*----------------------관리자 헤더----------------------------*/
+
+@font-face {
+    font-family: 'NEXONFootballGothicBA1';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXONFootballGothicBA1.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	margin: 0;
+}
+
+#wrap {
+	background-color: white;
+}
+
+
+header {
+	height: 90px;
+	font-family: 'NEXONFootballGothicBA1';
+}
+
+footer {
+	bottom: 2px;
+}
+
+#homepage_logo {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	display: inline;
+}
+
+.header1 {
+	display: flex;
+	justify-content: right;
+}
+
+.header1 a {
+	font-size: 13px;
+	color: grey;
+	margin-right: 10px;
+}
+
+.mng_home_text {
+	display: flex;
+	justify-content: center;
+	color: red;
+	font-size: 60px;
+	font-weight: bold;
+}
+
+.mng_home_text a {
+	color: red;
+	text-decoration: none;
+}
+
+
+.header2 ul {
+	display: flex;
+	flex-wrap: wrap;
+  	gap: 80px;
+	justify-content: center;
+	margin-top: 60px;
+	font-size: 20px;
+	list-style: none;
+}
+
+.header2 ul > li a {
+	text-decoration: none;
+	color: black;
+}
+
+
+/*-------------------관리자 드랍다운-------------------------------*/
+
+.dropdown {
+  position : relative;
+  display : inline-block;
+}
+
+.dropbtn_icon {
+  font-family : 'Material Icons';
+}
+
+.dropbtn {
+  border : 1px solid rgb(37, 37, 37);
+  border-radius : 15px;
+  background-color: #f5f5f5;
+  font-weight: bold;
+  color : rgb(37, 37, 37);
+  padding : 15px;
+  width :200px;
+  text-align: left;
+  cursor : pointer;
+  font-size : 17px;
+  font-family: 'NEXONFootballGothicBA1';
+}
+
+.dropdown-content {
+  display : none;
+  position : absolute;
+  z-index : 1;
+  font-weight: 400;
+  background-color: #f9f9f9;
+  min-width : 200px;
+  font-family: 'NEXONFootballGothicBA1';
+}
+
+.dropdown-content a {
+  display : block;
+  text-decoration : none;
+  color : rgb(37, 37, 37);
+  font-size: 15px;
+  padding : 12px 20px;
+}
+
+.dropdown-content a:hover {
+  background-color : #ececec
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*-----------------관리자페이지 타이틀 / 공지 리스트---------------------------------*/
+
+.management_main_flex {
+	display: flex;
+	align-items: center;
+	font-family: 'NEXONFootballGothicBA1';
+}
+
+.management_title {
+	margin-left: 120px;
+	margin-top: 180px;
+	margin-bottom: 35px;
+}
+
+.management_write_btn h3 {
+	  float: left;
+	  margin-top: 15px;
+	  margin-left: 120px;
+	  background-color: transparent;
+}
+
+.fa-pen-nib {
+	font-size: 30px;
+	background-color: transparent;
+}
+
+.management_write_btn button {
+	background-color: transparent;
+	margin-top: 20px;
+	border: 3px solid black;
+	width: 70px;
+	height: 70px;
+	border-radius: 70%;
+	text-decoration: none;
+	text-align: center;
+    display: inline-block;
+    margin-left: -90px;
+	margin-top: 180px;
+	margin-bottom: 35px;
+	
+}
+
+.management_write_btn button .write-icon-text {
+    display: block;
+    margin-top: 6px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+  }
+
+.management_write_btn button:hover {
+    cursor: pointer;
+  }
+  
+  .delete_btn button {
+    background-color: white;
+    border: none;
+  }
+  
+/*------------------공지사항 list--------------------------------*/
+ 
+table.management_notice_table {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  margin: 0 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+table.management_notice_table thead th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #F31559;
+  border-bottom: 3px solid #F31559;
+  gap: 100px;
+}
+
+table.management_notice_table tbody th {
+  width: 120px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #f3f6f7;
+}
+
+table.management_notice_table td {
+  width: 400px;
+  padding: 13px;
+  vertical-align: top;
+  border-bottom: 1px solid #35A29F;
+}
+
+table.management_notice_table td,
+table.management_notice_table th {
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;	
+ 	}
+
+#management_notice_main {
+	text-align: center;
+}
+
+.management_notice_table a {
+	text-decoration: none;
+	color: #000;
+}
+
+.management_notice_table a:hover {
+	color: #F29727;
+}
+
+.management_notice_table a:visited {
+	text-decoration: none;
+}
+
+.no-border {
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+	background-color: transparent;
+}
+
+.delete_btn button {
+	float: right;
+	font-size: 36px;
+	margin-top: -90px;
+	margin-right: 60px;
+	margin-bottom: 40px;
+	align-items: center;
+	background-color: transparent;
+	padding: 0 auto;
+	cursor: pointer;
+}
+
+
+.page_wrap {
+	text-align: center;
+	font-size: 0;
+	margin-top: 80px;
+	margin-bottom: 50px;
+ }
+ 
+.page_nation {
+	display: inline-block;
+}
+
+.page_nation .none {
+	display: none;
+}
+
+.page_nation a {
+	display: block;
+	margin: 0 3px;
+	float: left;
+	border: 1px solid #e6e6e6;
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	background-color: white;
+	font-size: 13px;
+	color: #999999;
+	text-decoration: none;
+}
+
+.page_nation .arrow {
+	border: 1px solid #ccc;
+}
+
+.page_nation .prev {
+	background: #f8f8f8 url('img/page_prev.png') no-repeat center center;
+	margin-right: 7px;
+}
+.page_nation .next {
+	background: #f8f8f8 url('img/page_next.png') no-repeat center center;
+	margin-left: 7px;
+}
+
+.page_nation a.active {
+	background-color: #FAF1E4;
+	color: black;
+	border: 1px solid #42454c;
+}
+
+.on_fire {
+	background-color: pink !important;
+}
+  
+  
+/*-------------------관리자 1:1문의 리스트-------------------------------*/
+
+table.management_qna_table {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  margin: 0 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+table.management_qna_table thead th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #F31559;
+  border-bottom: 3px solid #F31559;
+  gap: 100px;
+}
+
+table.management_qna_table tbody th {
+  width: 120px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #f3f6f7;
+}
+
+table.management_qna_table td {
+  width: 450px;
+  padding: 13px;
+  vertical-align: top;
+  border-bottom: 1px solid #35A29F;
+}
+
+/*padding으로 요소 좌우 간격 조절 가능*/
+table.management_qna_table td,
+table.management_qna_table th {
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;	
+ 	}
+
+#management_qna_main {
+	text-align: center;
+}
+
+.management_qna_table a {
+	text-decoration: none;
+	color: #000;
+}
+
+.management_qna_table a:hover {
+	color: #F29727;
+}
+
+.management_qna_table a:visited {
+	text-decoration: none;
+}
+
+
+/*-------------------1:1 공지글 작성-------------------------------*/
+
+.management_notice_write_form {
+	   margin-top: 50px;
+	   width: 60%;
+	   margin-left: auto;
+	   margin-right: auto;
+	}
+	
+	.management_notice_write_form div {
+	   margin-bottom: 30px; 
+	}
+	
+	.management_notice_write_form textarea {
+	   width: 90%;
+	   height: 300px;
+	   padding-left: 20px;
+	   padding-top: 20px;
+	   font-size: 13px;
+	   border: 1px solid #F31559;
+	   outline: none;
+	   border-radius: 20px;
+	   color: #27374D;
+	}
+	
+	#m_title {
+		width: 80%;
+		height: 40px;
+		padding-left: 20px;
+		border: 1px solid #F31559;
+		outline: none;
+		border-radius: 10px;
+		color: #27374D;
+	}
+	
+	#m_horsehead {
+		width: 70px;
+		height: 45px;
+		margin-left: 10px;
+		border: 1px solid #F31559;
+		outline: none;
+		color: #C38154;
+		font-weight: bold;
+	}
+	/*등록 버튼*/
+	.notice_write_btn button {
+		width: 200px;
+		height: 40px;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		border-radius: 20px;
+		border-color: gold;
+		background-color: #F99B7D;
+		color: #FFD95A;
+		font-weight: bold;
+		font-size: 20px;
+		margin-bottom: 50px;
+	}
+	
+	.notice_write_btn button:hover {
+		cursor: pointer;
+		background-color: #FFD95A;
+		color: #F99B7D;
+	}
+	
+	/*목록으로 버튼*/
+	.management_backlist_btn h3 {
+		  float: left;
+		  margin-top: 15px;
+		  margin-left: 120px;
+		  background-color: transparent;
+	}
+	
+	fa-list {
+		font-size: 30px;
+		background-color: transparent;
+	}
+	
+	.management_backlist_btn button {
+		background-color: transparent;
+		margin-top: 20px;
+		border: 3px solid black;
+		width: 70px;
+		height: 70px;
+		border-radius: 70%;
+		text-decoration: none;
+		text-align: center;
+	    display: inline-block;
+	    margin-left: -90px;
+		margin-top: 180px;
+		margin-bottom: 35px;
+		
+	}
+	
+	.management_backlist_btn button .backlist-icon-text {
+	    display: block;
+	    margin-top: 6px;
+	    text-align: center;
+	    color: black;
+	    font-weight: bold;
+	  }
+	
+	.management_backlist_btn button:hover {
+	    cursor: pointer;
+	  }
+	  
+/*-------------1:1문의 답변 창-------------------------------*/
+
+.management_notice_write_form summary {
+	margin-top: 40px;
+	margin-bottom: 15px;
+	font-size: 20px;
+	color: #DF2E38;
+	cursor: pointer;
+}
+
+
+.view_question_list h4 {
+	margin-bottom: -20px;
+	color: #9DC08B;
+	font-size: 23px;
+}
+
+.qna_answer_btn button {
+		width: 200px;
+		height: 40px;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		border-radius: 20px;
+		border-color: gold;
+		background-color: #F99B7D;
+		color: #FFD95A;
+		font-weight: bold;
+		font-size: 20px;
+		margin-bottom: 50px;
+		margin-top: 30px;
+	}
+	
+	.qna_answer_btn button:hover {
+		cursor: pointer;
+		background-color: #FFD95A;
+		color: #F99B7D;
+	}
+	
+	#category {
+		border: 1px solid #F31559 !important;
+		color: #C38154;
+	}
+	
+	.fa-rotate-left {
+		background-color: transparent;
+		border: none;
+		font-size: 30px;
+	}
+	
+/*-------------관리자 공지사항 view-------------------------------*/
+
+.notice_view_title {
+	font-size: 20px;
+	color: #1D5D9B;
+	font-weight: bold;
+}
+
+.notice_view_content {
+	margin-top: -10px;
+}
+
+
+/*-----------------밴리스트에 추가 버튼-------------------------------*/
+
+.fa-solid.fa-user-plus {
+		font-size: 40px;
+		background-color: transparent;
+	}
+	
+	.management_addban_btn button {
+		background-color: transparent;
+		margin-top: 20px;
+		border: 3px solid black;
+		width: 70px;
+		height: 70px;
+		border-radius: 70%;
+		text-decoration: none;
+		text-align: center;
+	    display: inline-block;
+	    margin-left: 20px;
+		margin-top: 180px;
+		margin-bottom: 35px;
+		
+	}
+	
+	.management_addban_btn button .addban-icon-text {
+	    display: block;
+	    margin-top: 6px;
+	    text-align: center;
+	    color: black;
+	    font-weight: bold;
+	  }
+	
+	.management_addban_btn button:hover {
+	    cursor: pointer;
+	  }
+
+/*----------------------밴 리스트 css------------------------------------*/
+
+table.management_excludeList_table {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  margin: 0 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+table.management_excludeList_table thead th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #F31559;
+  border-bottom: 3px solid #F31559;
+  gap: 100px;
+}
+
+table.management_excludeList_table tbody th {
+  width: 120px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #f3f6f7;
+}
+
+table.management_excludeList_table td {
+  width: 450px;
+  padding: 13px;
+  vertical-align: top;
+  border-bottom: 1px solid #35A29F;
+}
+
+table.management_excludeList_table td,
+table.management_excludeList_table th {
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;	
+ 	}
+
+#management_excludeList_list {
+	text-align: center;
+}
+
+.management_excludeList_table a {
+	text-decoration: none;
+	color: #000;
+}
+
+.management_excludeList_table a:hover {
+	color: #F29727;
+} 
+	  
+#nickname {
+	width: 400px;
+	height: 60px;
+	padding-left: 20px;
+	border: 1px solid #F31559;
+	outline: none;
+	border-radius: 10px;
+	color: #27374D;
+}
+
+ #addexclude-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.exclude-title {
+	font-size: 25px;
+	font-weight: bold;
+	color: #F31559;
+	text-align: center;
+}
+
+
+
+#addexclude-form form {
+	margin-top: 40px;
+}
+
+.addban_btn button {
+		width: 200px;
+		height: 60px;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		border-radius: 20px;
+		border-color: gold;
+		background-color: #F99B7D;
+		color: #FFD95A;
+		font-weight: bold;
+		font-size: 20px;
+		margin-bottom: 50px;
+		margin-top: 40px;
+		
+	}
+	
+.addban_btn button:hover {
+	cursor: pointer;
+	background-color: #FFD95A;
+	color: #F99B7D;
+}
+
+
+/*------------------ 게시판 승인 목록 ------------------*/
+
+.notApprove_btn {
+	width: 100px;
+	height: 30px;
+	background-color: #A8A196;
+	color: black;
+	font-weight: bold;
+	border: none;
+	box-shadow: 2px 2px 0px 1px black;
+}
+
+.Approve_btn {
+	width: 100px;
+	height: 30px;
+	background-color: #B0DAFF;
+	color: black;
+	font-weight: bold;
+	border: none;
+	box-shadow: 2px 2px 0px 1px black;
+}
+
+.Refuse_btn {
+	width: 100px;
+	height: 30px;
+	background-color: #E76161;
+	color: white;
+	font-weight: bold;
+	border: none;
+	box-shadow: 2px 2px 0px 1px black;
+}
+
+.fa-floppy-disk {
+	font-size: 25px;
+	color: #537188;
+}
+
+
+table.confirm_list_table {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  margin: 0 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+table.confirm_list_table thead th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #F31559;
+  border-bottom: 3px solid #F31559;
+  gap: 100px;
+}
+
+table.confirm_list_table tbody th {
+  width: 120px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #f3f6f7;
+}
+
+table.confirm_list_table td {
+  width: 400px;
+  padding: 13px;
+  vertical-align: top;
+  border-bottom: 1px solid #35A29F;
+}
+
+table.confirm_list_table td,
+table.confirm_list_table th {
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;	
+ 	}
+
+#confirm_list_main {
+	text-align: center;
+}
+
+.confirm_list_table a {
+	text-decoration: none;
+	color: #000;
+}
+
+.confirm_list_table a:hover {
+	color: #F29727;
+}
+
+.confirm_list_table a:visited {
+	text-decoration: none;
+}
+
+/*--------------- 게시판 승인 view ----------------*/
+
+.confirm_list_view_form {
+    margin-bottom: 70px;
+}
+
+.confirm_list_view_form > div {
+    text-align: center;
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px double pink;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 800px;
+    padding-bottom: 20px;
+}
+
+.view_title {
+	border: 2px double skyblue;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5px;
+    font-weight: bold;
+    font-size: 19px;
+    color: red;
+	font-family: 'NEXONFootballGothicBA1';
+}
+
+.view_content {
+	font-weight: bold;
+	font-size: 16px;
+	margin-top: 30px;
+}
+
+/* 나침반 버튼 */
+
+.compass-frame {
+  position: fixed;
+  right: 5%;
+  top: 50%;
+  width: 250px;
+  height: 250px;
+  border: 3px solid #E9B384;
+  border-radius: 250%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm_view_btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: rotate(-135deg);
+}
+
+.confirm_y_btn,
+.confirm_n_btn {
+  width: 60px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm_y_btn button,
+.confirm_n_btn button {
+  width: 60px;
+  height: 130px;
+  border: none;
+  cursor: pointer;
+}
+
+.confirm_y_btn button {
+  background-color: #279EFF;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.confirm_n_btn button {
+  background-color: #FF6969;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+}
+
+/*------------ 메세지  드랍다운 ----------*/
+
+.message_dropdown {
+  position : fixed;
+  display : inline-block;
+  left: 10%;
+  top: 20%;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.message_dropbtn {
+  border : none;
+  border-radius : 15px;
+  background-color: transparent;
+  font-weight: bold;
+  color : rgb(37, 37, 37);
+  text-align: left;
+  cursor : pointer;
+  font-size : 50px;
+  font-family: 'NEXONFootballGothicBA1';
+}
+
+.message_dropdown-content {
+  display : none;
+  position : absolute;
+  z-index : 1;
+  font-weight: 300;
+  background-color: #FFDBAA;
+  min-width : 200px;
+  font-family: 'NEXONFootballGothicBA1';
+  border-radius: 20px;
+}
+
+.message_dropdown-content a {
+  display : block;
+  text-decoration : none;
+  color : #F6635C;
+  font-size: 16px;
+  padding : 15px 20px;
+}
+
+.message_dropdown-content a:hover {
+  opacity: 0.6;
+}
+
+.message_dropdown:hover .message_dropdown-content {
+  display: block;
+}
+
+.sendm_btn {
+	background-color: #FFBB5C;
+}
+
+
+/*------------- 쪽지 테이블 스타일 ------------*/
+
+table.management_message_table {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  margin: 0 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+table.management_message_table thead th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #F31559;
+  border-bottom: 3px solid #F31559;
+  gap: 100px;
+}
+
+table.management_message_table tbody th {
+  width: 120px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #f3f6f7;
+}
+
+table.management_message_table td {
+  width: 450px;
+  padding: 13px;
+  vertical-align: top;
+  border-bottom: 1px solid #35A29F;
+}
+
+table.management_message_table td,
+table.management_message_table th {
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;	
+ 	}
+
+#management_message_main {
+	text-align: center;
+}
+
+.management_message_table a {
+	text-decoration: none;
+	color: #000;
+}
+
+.management_message_table a:hover {
+	color: #F29727;
+}
+
+.management_message_table a:visited {
+	text-decoration: none;
+}
+
+/*------------쪽지 메세지 모달 -----------------------*/
+
+.management_modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+.management_modal-dialog {
+  position: relative;
+  margin: 50px auto;
+  padding: 20px;
+  width: 640px;
+  height: 570px;
+  background-color: #FFBB5C;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.management_modal-header,
+.management_modal-footer {
+  padding: 10px;
+  background-color: #FFBB5C;
+  text-align: center;
+  padding: auto;
+  height: 30px;
+  margin-bottom: 40px;
+  color: red;
+  font-size: 20px;
+}
+
+.management_modal-body {
+  padding: 10px;
+  text-align: center;
+}
+
+.management_close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.management_modal-body input[type="text"],
+.management_modal-body textarea {
+  width: 90%;
+  height: 33px;
+  padding-left: 20px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+.management_modal-body input[type="text"]:focus,
+.management_modal-body textarea:focus {
+  background-color: #F8F6F4;
+}
+
+.management_modal-body textarea {
+	height: 250px;
+	border: none;
+	padding-top: 10px;
+	border-radius: 15px;
+}
+
+
+
+.management_modal-body select {
+	width: 94%;
+	height: 35px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	border: none;
+	cursor: pointer;
+	padding-left: 10px;
+}
+
+.management_modal-footer input[type="submit"],
+.management_modal-footer button.btn {
+  width: 150px;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: -25px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.4s;
+  background-color: #5B9A8B;
+  
+}
+
+.management_modal-footer input[type="submit"]:hover,
+.management_modal-footer button.btn:hover {
+	opacity: 0.8;
+	transition: 0.4s;
+}
+
+.management_close {
+	background-color: transparent;
+	border: none;
+}
+
+.management_close {
+  font-size: 35px;
+}
+
+.management_close:hover {
+  color: red;
+}
+
+
+/*-------------------- 쪽지 받기 ---------------------*/
+.receive_message_modal {
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff0000de;
+  z-index: 1;
+  padding-bottom: 70px;
+  padding-top: 70px;
+  margin: 0;
+  margin-top: 110px;
+}
+
+.receive_message_modal-wrap {
+  margin: 40px auto;
+  padding: 20px;
+  width: 770px;
+  height: 850px;
+  background-color: #FFBB5C;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.receive_message_modal-header,
+.receive_message_modal-footer {
+  padding: 10px;
+  background-color: #FFBB5C;
+  text-align: center;
+  padding: auto;
+  height: 30px;
+  margin-bottom: 40px;
+  color: red;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.receive_message_modal-body {
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.receive_message_modal {
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.receive_message_modal-body input[type="text"],
+.receive_message_modal-body textarea {
+  width: 90%;
+  height: 33px;
+  padding-left: 20px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+.receive_message_modal-body input[type="text"]:focus,
+.receive_message_modal-body textarea:focus {
+  background-color: #F8F6F4;
+}
+
+.receive_message_modal-body textarea {
+	height: 250px;
+	border: none;
+	padding-top: 10px;
+	border-radius: 15px;
+}
+
+.receive_message_modal-body select {
+	width: 94%;
+	height: 35px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	border: none;
+	cursor: pointer;
+	padding-left: 10px;
+}
+.receive_message_modal-footer > a button,
+.receive_message_modal-footer button.exit-btn {
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: -25px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.4s;
+  background-color: #5B9A8B;
+  
+}
+.receive_message_modal-footer > a button:hover,
+.receive_message_modal-footer button.exit-btn:hover {
+	opacity: 0.8;
+	transition: 0.4s;
+}
+
+.move_send_btn {
+	background-color: transparent;	
+}
+
+.message-info > div,
+.message-content > div {
+	margin-bottom: 12px;
+	float: left;
+	margin-left: 30px;
+	font-size: 19px;
+	font-weight: bold;
+	color: #664646;
+}
+
+
+ 
