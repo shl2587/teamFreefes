@@ -45,7 +45,8 @@
           -> 해당 버튼을 클릭하게 되면 비동기 통신으로 DB에 기록되고 삭제
           -> 로그인 하지 않으면 로그인 페이지로 이동
 
-![image](https://github.com/shl2587/teamFreefes/assets/127282898/9242eb01-2a34-4b9e-965e-7165af652edb)
+![image](https://github.com/shl2587/teamFreefes/assets/127282898/65be7f10-d916-4cf9-996c-b9eb8b8cb16a)
+
 
 
 ## 3. 구현 기능 상세 설명
