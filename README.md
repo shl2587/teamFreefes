@@ -18,7 +18,7 @@
 
     
 ## 2. 사용된 주요 기술
-<blockquote style="font-size:1.5em">
+<div style="font-size:1.5em">
     1) 구현 기능 </p>
 <ul>
     <li>DB구축</li>
@@ -27,20 +27,27 @@
         - select를 통한 DB불러오기
           -> 조건 설정을 하면 해당 조건에 대한 DB만 불러옴
 </ul>
-</blockquote>
+</div>
 
 ![image](https://github.com/shl2587/teamFreefes/assets/127282898/bdf0aa76-517f-4823-b893-6e55677c9a37)
 
-          
-      ● 페이징
+
+<div style="font-size:1.5em">
+<ul>
+    <li>페이징</li>
         - 한 페이지당 10개씩 10페이지씩 불러옴
+</ul>
+</div>
 
 ![image](https://github.com/shl2587/teamFreefes/assets/127282898/be2b4ad5-7693-4fcd-bee9-87bc882ec576)
 
-
-      ● 검색
+<div style="font-size:1.5em">
+<ul>
+    <li>검색</li>
         - 조건 설정을 통한 검색
         - Ajax를 통한 페이지 전환 없이 검색 가능
+</ul>
+</div>
 
 ![image](https://github.com/shl2587/teamFreefes/assets/127282898/c9ba93ab-dfc8-45de-b172-f4d90afc0c9b)
 
