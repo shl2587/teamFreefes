@@ -24,7 +24,7 @@
     <li>DB구축</li>
         - Crawling 기술 사용
     <li>게시판</li>
-        - select를 통한 DB불러오기
+        - select를 통한 DB불러오기</p>
           -> 조건 설정을 하면 해당 조건에 대한 DB만 불러옴
 </ul>
 </div>
@@ -59,9 +59,10 @@
 <div style="font-size:1.5em">
 <ul>
     <li>즐겨찾기</li>
-        - Ajax를 통해 페이지 전환 없이 즐겨찾기 가능
-          -> 해당 버튼을 클릭하게 되면 비동기 통신으로 DB에 기록되고 삭제
-          -> 로그인 하지 않으면 로그인 페이지로 이동</ul>
+        - Ajax를 통해 페이지 전환 없이 즐겨찾기 가능</p>
+          -> 해당 버튼을 클릭하게 되면 비동기 통신으로 DB에 기록되고 삭제</p>
+          -> 로그인 하지 않으면 로그인 페이지로 이동</p>
+</ul>
 </div>
 
 ![image](https://github.com/shl2587/teamFreefes/assets/127282898/65be7f10-d916-4cf9-996c-b9eb8b8cb16a)
