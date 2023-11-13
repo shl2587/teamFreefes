@@ -18,7 +18,7 @@
 
     
 ## 2. 사용된 주요 기술
-    1) 구현 기능
+    <span style="font-size:1.5em"> 1) 구현 기능 </span>
       ● DB구축
         - Crawling 기술 사용
       ● 게시판
