@@ -5,7 +5,7 @@
 
 ## 1. 프로젝트 개요
     1) Back-end
-    ![image](https://github.com/shl2587/teamFreefes/assets/127282898/320cf1c6-8faf-4e45-832b-bd64bfc1c20b)
+![image](https://github.com/shl2587/teamFreefes/assets/127282898/320cf1c6-8faf-4e45-832b-bd64bfc1c20b)
 
       
     2) Front-end
