@@ -19,12 +19,14 @@
     
 ## 2. 사용된 주요 기술
 <div style="font-size:1.5em">
-    1) 구현 기능 </span>
-      ● DB구축
+    1) 구현 기능 </p>
+<ul>
+    <li>DB구축</li>
         - Crawling 기술 사용
-      ● 게시판
+    <li>게시판</li>
         - select를 통한 DB불러오기
           -> 조건 설정을 하면 해당 조건에 대한 DB만 불러옴
+</ul>
 </div>
 ![image](https://github.com/shl2587/teamFreefes/assets/127282898/bdf0aa76-517f-4823-b893-6e55677c9a37)
 
