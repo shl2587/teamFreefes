@@ -4,7 +4,10 @@
   - 한승록 외 4명
 
 ## 1. 프로젝트 개요
-    1) Back-end
+<span style="font-size:1.5em">
+    <strong></strong>1) Back-end</strong>
+</span>
+
 ![image](https://github.com/shl2587/teamFreefes/assets/127282898/320cf1c6-8faf-4e45-832b-bd64bfc1c20b)
 
     2) Front-end
@@ -47,8 +50,8 @@
 <div style="font-size:1.5em">
 <ul>
     <li>검색</li>
-        - 조건 설정을 통한 검색
-        - Ajax를 통한 페이지 전환 없이 검색 가능
+        <p>- 조건 설정을 통한 검색</p>
+        <p>- Ajax를 통한 페이지 전환 없이 검색 가능</p>
 </ul>
 </div>
 
