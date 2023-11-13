@@ -29,12 +29,24 @@
           
       ● 페이징
         - 한 페이지당 10개씩 10페이지씩 불러옴
+
+![image](https://github.com/shl2587/teamFreefes/assets/127282898/be2b4ad5-7693-4fcd-bee9-87bc882ec576)
+
+
       ● 검색
         - 조건 설정을 통한 검색
         - Ajax를 통한 페이지 전환 없이 검색 가능
+
+![image](https://github.com/shl2587/teamFreefes/assets/127282898/c9ba93ab-dfc8-45de-b172-f4d90afc0c9b)
+
+
       ● 즐겨찾기
         - Ajax를 통해 페이지 전환 없이 즐겨찾기 가능
           -> 해당 버튼을 클릭하게 되면 비동기 통신으로 DB에 기록되고 삭제
+          -> 로그인 하지 않으면 로그인 페이지로 이동
+
+![image](https://github.com/shl2587/teamFreefes/assets/127282898/9242eb01-2a34-4b9e-965e-7165af652edb)
+
 
 ## 3. 구현 기능 상세 설명
     
