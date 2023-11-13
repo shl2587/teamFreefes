@@ -4,7 +4,7 @@
   - 한승록 외 4명
 
 ## 1. 프로젝트 개요
-<span style="font-size:120%">
+<span style="font-size:80px">
 <strong>1) Back-end</strong>
 </span>
 
