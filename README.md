@@ -6,6 +6,7 @@
 ## 1. 프로젝트 개요
     1) Back-end
       - ![image](https://github.com/shl2587/teamFreefes/assets/127282898/b5d7bdf1-b2b9-48fa-b07c-ec65e5bcd09c)
+      
     2) Front-end
     3) Spring 라이브러리
     4) DataBase 테이블
