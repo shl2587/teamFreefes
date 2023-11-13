@@ -6,11 +6,16 @@
 ## 1. 프로젝트 개요
     1) Back-end
 ![image](https://github.com/shl2587/teamFreefes/assets/127282898/320cf1c6-8faf-4e45-832b-bd64bfc1c20b)
+
     2) Front-end
 ![image](https://github.com/shl2587/teamFreefes/assets/127282898/a81423f9-36ed-438d-ae19-734d36a3e846)
 
     3) Spring 라이브러리
+![image](https://github.com/shl2587/teamFreefes/assets/127282898/a95a3234-98a6-4723-8a1f-34248707b56a)
+
     4) DataBase 테이블
+![image](https://github.com/shl2587/teamFreefes/assets/127282898/6b21a9d1-8ed2-4157-b6a2-b2955e688a25)
+
     
 ## 2. 사용된 주요 기술
     1) 구현 기능
