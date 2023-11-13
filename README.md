@@ -24,6 +24,9 @@
       ● 게시판
         - select를 통한 DB불러오기
           -> 조건 설정을 하면 해당 조건에 대한 DB만 불러옴
+![image](https://github.com/shl2587/teamFreefes/assets/127282898/bdf0aa76-517f-4823-b893-6e55677c9a37)
+
+          
       ● 페이징
         - 한 페이지당 10개씩 10페이지씩 불러옴
       ● 검색
