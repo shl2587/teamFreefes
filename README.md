@@ -31,6 +31,7 @@
 
 ![image](https://github.com/shl2587/teamFreefes/assets/127282898/bdf0aa76-517f-4823-b893-6e55677c9a37)
 
+<br><br>
 
 <div style="font-size:1.5em">
 <ul>
@@ -40,6 +41,8 @@
 </div>
 
 ![image](https://github.com/shl2587/teamFreefes/assets/127282898/be2b4ad5-7693-4fcd-bee9-87bc882ec576)
+
+<br><br>
 
 <div style="font-size:1.5em">
 <ul>
@@ -51,11 +54,15 @@
 
 ![image](https://github.com/shl2587/teamFreefes/assets/127282898/c9ba93ab-dfc8-45de-b172-f4d90afc0c9b)
 
+<br><br>
 
-      ● 즐겨찾기
+<div style="font-size:1.5em">
+<ul>
+    <li>즐겨찾기</li>
         - Ajax를 통해 페이지 전환 없이 즐겨찾기 가능
           -> 해당 버튼을 클릭하게 되면 비동기 통신으로 DB에 기록되고 삭제
-          -> 로그인 하지 않으면 로그인 페이지로 이동
+          -> 로그인 하지 않으면 로그인 페이지로 이동</ul>
+</div>
 
 ![image](https://github.com/shl2587/teamFreefes/assets/127282898/65be7f10-d916-4cf9-996c-b9eb8b8cb16a)
 
