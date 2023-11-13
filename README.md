@@ -4,7 +4,7 @@
   - 한승록 외 4명
 
 ## 1. 프로젝트 개요
-<span style="font-size:80px"><strong>1) Back-end</strong></span>
+<strong>1) Back-end</strong>
 
 ![image](https://github.com/shl2587/teamFreefes/assets/127282898/320cf1c6-8faf-4e45-832b-bd64bfc1c20b)
 
